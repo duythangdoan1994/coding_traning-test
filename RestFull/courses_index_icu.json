@@ -1,0 +1,79 @@
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "my_analyzer": { 
+          "tokenizer": "icu_tokenizer",
+          "filter":  [ "icu_folding", "lowercase" ]
+        }
+    }
+  },
+  "mappings": {
+    "courses": {
+      "properties": {
+        "alias_name": {
+          "type": "string",
+          "analyzer": "my_analyzer"
+        },
+        "audience": {
+          "type": "string"
+        },
+        "average_rating": {
+          "type": "double"
+        },
+        "benefit": {
+          "type": "string",
+          "analyzer": "my_analyzer"
+        },
+        "curriculums": {
+          "type": "string",
+          "analyzer": "my_analyzer"
+        },
+        "description": {
+          "type": "string",
+          "analyzer": "my_analyzer"
+        },
+        "description_editor": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "analyzer": "my_analyzer"
+        },
++        "rating": {
+          "type": "double"
+        },
+        "requirement": {
+          "type": "string",
+          "analyzer": "my_analyzer"
+        },
+        "timestamp": {
+          "type": "long"
+        }
+      }
+    },
+    "users": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string",
+          "analyzer": "my_analyzer"
+        },
+        "money": {
+          "type": "long"
+        },
+        "email": {
+          "type": "string",
+          "analyzer": "my_analyzer"
+        }
+      }
+    }
+  }
+}
+
+ 
