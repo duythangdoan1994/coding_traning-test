@@ -2,59 +2,74 @@
   "settings": {
     "analysis": {
       "analyzer": {
-        "my_analyzer": { 
+        "my_analyzer": {
           "tokenizer": "icu_tokenizer",
-          "filter":  [ "icu_folding", "lowercase" ]
+          "filter":  ["lowercase", "icu_folding"]
+        },
+        "sortable": {
+          "filter": "lowercaseFilter",
+          "tokenizer": "keyword",
+          "type": "custom"
         }
-    }
-  },
-  "mappings": {
-    "courses": {
-      "properties": {
-        "alias_name": {
-          "type": "string",
-          "analyzer": "my_analyzer"
-        },
-        "audience": {
-          "type": "string"
-        },
-        "average_rating": {
-          "type": "double"
-        },
-        "benefit": {
-          "type": "string",
-          "analyzer": "my_analyzer"
-        },
-        "curriculums": {
-          "type": "string",
-          "analyzer": "my_analyzer"
-        },
-        "description": {
-          "type": "string",
-          "analyzer": "my_analyzer"
-        },
-        "description_editor": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string",
-          "analyzer": "my_analyzer"
-        },
-+        "rating": {
-          "type": "double"
-        },
-        "requirement": {
-          "type": "string",
-          "analyzer": "my_analyzer"
-        },
-        "timestamp": {
-          "type": "long"
+    },
+      "filter":{
+        "lowercaseFilter":{
+          "type": "lowercase"
+        }
+      },
+      "tokenizer":{
+        "keyword":{
+          "type": "keyword"
         }
       }
-    },
+  },
+    "mappings": {
+      "courses": {
+        "properties": {
+          "alias_name": {
+            "type": "string",
+            "analyzer": "my_analyzer"
+          },
+          "audience": {
+            "type": "string"
+          },
+          "average_rating": {
+            "type": "double"
+          },
+          "benefit": {
+            "type": "string",
+            "analyzer": "my_analyzer"
+          },
+          "curriculums": {
+            "type": "string",
+            "analyzer": "my_analyzer"
+          },
+          "description": {
+            "type": "string",
+            "analyzer": "my_analyzer"
+          },
+          "description_editor": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "analyzer": "my_analyzer"
+          },
+          "rating": {
+            "type": "double"
+          },
+          "requirement": {
+            "type": "string",
+            "analyzer": "my_analyzer"
+          },
+          "timestamp": {
+            "type": "long"
+          }
+        }
+      },
     "users": {
       "properties": {
         "id": {
@@ -75,5 +90,4 @@
     }
   }
 }
-
- 
+}

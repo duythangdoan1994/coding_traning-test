@@ -7,11 +7,11 @@ from bson import json_util
 def search():
     esclient = Elasticsearch(['localhost:9200'])
     response = esclient.search(
-        index = 'courses',
-        body = {
+        index='courses',
+        body={
             "size": 600,
-            "from":0,
-            "query":{
+            "from": 0,
+            "query": {
                 "bool": {
                     "should": [
                         {"match": {"version": "public"}},

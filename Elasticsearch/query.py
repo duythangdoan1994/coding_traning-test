@@ -4,18 +4,6 @@ from pprint import pprint
 
 
 def search(uri, term):
-    condition = {}
-    condition["enabled"] = True
-    condition["version"] = "public"
-    must = json.dumps(
-        { "term" : {
-            "enabled": condition.get("enabled") }
-        },
-        { "term": {
-            "version": condition.get("public") }
-        }
-    )        
-
     query = json.dumps({
         "query": {
             "multi_match": {

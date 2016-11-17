@@ -1,0 +1,51 @@
+{
+    "settings":{
+        "analysis":{
+            "analyzer":{
+                "my_analyzer":{
+                    "filter":["lowercase", "icu_folding"],
+                    "tokenizer": "icu_tokenizer"
+                },
+                "sortable":{
+                    "filter": "lowercaseFilter",
+                    "tokenizer": "keyword",
+                    "type": "custom"
+                }
+            },
+            "filter":{
+                "lowercaseFilter":{
+                    "type": "lowercase"
+                }
+            },
+            "tokenizer":{
+                "keyword":{
+                    "type": "keyword"
+                }
+            }
+        }
+    },
+    "mappings":{
+        "player": {
+            "_all": {
+                "enabled": true,
+                "analyzer": "my_analyzer"
+            },
+            "properties": {
+                "birth": {
+                "type": "string"
+                },
+                "country": {
+                "type": "string"
+                },
+                "id": {
+                    "include_in_all": false,
+                    "type": "string"
+                },
+                "name": {
+                    "analyzer": "my_analyzer",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
